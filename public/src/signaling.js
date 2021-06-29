@@ -59,6 +59,10 @@ const startSignalingServer = (httpServer) => {
         }
       });
     });
+
+    socket.on('disconnect', () => {
+      console.log('Got disconnect!');
+    });
   });
 };
 
