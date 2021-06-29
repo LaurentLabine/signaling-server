@@ -2,7 +2,12 @@ const socketIO = require('socket.io');
 const calls = {};
 
 const startSignalingServer = (httpServer) => {
-  const io = socketIO(httpServer);
+  const io = socketIO(httpServer, {
+    cors: {
+      origin: '*',
+      methods: ['GET', 'POST'],
+    },
+  });
 
   io.on('connection', (socketIO) => {
     console.log('New User Connected!!!');
