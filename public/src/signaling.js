@@ -58,10 +58,9 @@ const startSignalingServer = (httpServer) => {
           io.to(calls[callID][0]).emit('remote-ice-candidate', incoming);
         }
       });
-    });
-
-    socket.on('disconnect', () => {
-      console.log('Got disconnect!');
+      socket.on('disconnect', () => {
+        console.log('Got disconnect!');
+      });
     });
   });
 };
